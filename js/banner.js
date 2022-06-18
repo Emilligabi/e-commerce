@@ -23,6 +23,7 @@ const banners = [
 
 function initBanner(selector, banners) {
   let index = 0;
+  let intervalSlide = 0;
   const elements = {
     banners: [],
     details: [],
@@ -52,8 +53,8 @@ function initBanner(selector, banners) {
     const command = document.createElement("span");
     command.className = "command-item";
     command.onclick = function () {
-        go(i)
-    }
+      go(i);
+    };
 
     commands.append(command);
 
@@ -66,23 +67,38 @@ function initBanner(selector, banners) {
     elements.commands.push(command);
   }
 
-  function go(to) {
+  function go(to, isClearSlide = true) {
     const currentBanner = elements.banners[index];
     const currentDetail = elements.details[index];
     const currentCommander = elements.commands[index];
     currentBanner.hidden = true;
     currentDetail.hidden = true;
-    currentCommander.classList.remove('active')
+    currentCommander.classList.remove("active");
 
-    index = to
+    index = to;
 
     const nextBanner = elements.banners[index];
     const nextDetail = elements.details[index];
     const nextCommander = elements.commands[index];
     nextBanner.hidden = false;
     nextDetail.hidden = false;
-    nextCommander.classList.add('active')
+    nextCommander.classList.add("active");
+
+    if (isClearSlide) {
+        initSlide()
+    }
   }
+
+  function initSlide() {
+    clearInterval(intervalSlide);
+
+    intervalSlide = setInterval(function () {
+      const next = index + 1 >= banners.length ? 0 : index + 1;
+      go(next, false)
+    }, 10 * 1000);
+  }
+
+  initSlide()
 }
 
 initBanner("banner-content", banners);
