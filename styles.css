@@ -168,6 +168,15 @@ body {
   padding: 1rem 0;
 }
 
+.products-containers > .card > .info > .price {
+  font-size: 1rem;
+  font-weight: 700;
+  font-family: var(--ff-rb);
+  color: var(--color-primary-tint);
+  padding: 0.5rem 0;
+  text-align: right;
+}
+
 .products-containers > .card > .info > footer > button {
   width: 100%;
   padding: .5rem;
