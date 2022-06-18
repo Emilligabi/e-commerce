@@ -1,0 +1,60 @@
+:root {
+  --color-primary: #232323;
+  --color-primary-tint: #030303;
+  --color-primary-shade: #434343;
+  --color-contrast: #e8e8e8;
+  --color-contrast-tint: #d7d7d7;
+  --color-contrast-shade: #ffffff;
+  --shadow: 0 3px 6px -1px rgba(0, 0, 0, 0.16);
+  --border-radius: 0.75rem;
+  --border-radius-sm: 0.5rem;
+  --border-radius-md: 1rem;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  outline: none;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  min-height: 100vh;
+}
+
+.main-header {
+  width: 100%;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--color-primary-tint);
+  color: var(--color-contrast);
+}
+
+.main-header > nav > a {
+  background: var(--color-contrast);
+  padding: 0.25rem 0.5rem;
+  display: block;
+  color: var(--color-primary);
+  border-radius: var(--border-radius-md);
+  text-decoration: none;
+}
+
+.main-header > nav > a > span {
+  display: none;
+}
+
+.banner-container {
+  width: 100vw;
+  overflow: hidden;
+  height: 60vh;
+  position: relative;
+}
+
+.banner-container > .banners {
+  width: 100vw;
+  height: 60vh;
+  position: relative;
+}
