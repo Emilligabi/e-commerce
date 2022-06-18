@@ -8,6 +8,7 @@
   --color-contrast: #e8e8e8;
   --color-contrast-tint: #d7d7d7;
   --color-contrast-shade: #ffffff;
+  --color-alert: #dc143c;
   --shadow: 0 3px 6px -1px rgba(0, 0, 0, 0.16);
   --border-radius: 0.75rem;
   --border-radius-sm: 0.5rem;
@@ -41,15 +42,31 @@ body {
 
 .main-header > nav > a {
   background: var(--color-contrast);
-  padding: 0.25rem 0.5rem;
-  display: block;
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.75rem;
   color: var(--color-primary);
   border-radius: var(--border-radius-md);
   text-decoration: none;
+  position: relative;
 }
 
 .main-header > nav > a > span {
+  width: 1rem;
+  height: 1rem;
+  background: var(--color-alert);
+  border-radius: 50%;
+  right: -0.25rem;
+  top: -0.25rem;
+  position: absolute;
+  color: var(--color-contrast);
   display: none;
+  justify-content: center;
+  align-items: center;
+  font-size: .5rem;
 }
 
 .banner-container {
