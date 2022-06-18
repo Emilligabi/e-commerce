@@ -26,8 +26,10 @@ function initProductsCard(selector, products) {
     const name = document.createElement('header')
     name.innerText = product.name
     const detail = document.createElement('div')
+    detail.className = 'detail'
     detail.innerText = product.detail
     const price = document.createElement('p')
+    price.className = 'price'
     price.innerText = format(product.price)
     const footer = document.createElement('footer')
     const remove = document.createElement('button')
