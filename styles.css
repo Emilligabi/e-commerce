@@ -1,7 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300&family=Roboto:wght@500;700&display=swap');
+
 :root {
   --color-primary: #232323;
   --color-primary-tint: #030303;
   --color-primary-shade: #434343;
+  --color-primary-op-25: rgba(35, 35, 35, 0.25);
   --color-contrast: #e8e8e8;
   --color-contrast-tint: #d7d7d7;
   --color-contrast-shade: #ffffff;
@@ -9,6 +12,8 @@
   --border-radius: 0.75rem;
   --border-radius-sm: 0.5rem;
   --border-radius-md: 1rem;
+  --ff-qs: 'Quicksand', sans-serif;
+  --ff-rb: 'Roboto', sans-serif;
 }
 
 * {
@@ -16,6 +21,7 @@
   padding: 0;
   outline: none;
   box-sizing: border-box;
+  font-family: var(--ff-qs);
 }
 
 html,
@@ -57,4 +63,89 @@ body {
   width: 100vw;
   height: 60vh;
   position: relative;
+  background: var(--color-primary);
+}
+
+.banner-container > .banners > img {
+  width: 100%;
+  height: 100%;
+}
+
+.banner-container > .banners > .detail {
+  left: 0;
+  right: 0;
+  bottom: 2rem;
+  background: var(--color-primary-op-25);
+  color: var(--color-primary);
+  font-weight: bold;
+  padding: 1rem;
+  position: absolute;
+}
+
+.banner-container > .commands {
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: .5rem;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+}
+.banner-container > .commands > .command-item {
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+  background: var(--color-primary);
+  opacity: 0.5;
+  cursor: pointer;
+}
+
+.banner-container > .commands > .command-item.active {
+  opacity: 1;
+}
+
+.banner-container > .commands > .command-item + .command-item {
+  margin-left: 0.5rem;
+}
+
+.products-containers {
+  padding: 2rem;
+  display: grid;
+  grid-template-columns: repeat(4, 20rem);
+  justify-content: space-around;
+  gap: 1rem;
+  background: var(--color-contrast-tint);
+}
+
+.products-containers > .card {
+  padding: .5rem;
+  height: 25rem;
+  border-radius: var(--border-radius-sm);
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  background: var(--color-contrast-shade);
+}
+
+.products-containers > .card > figure > img {
+  width: 19rem;
+  height: 14rem;
+}
+
+.products-containers > .card > .info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.products-containers > .card > .info > header {
+  font-weight: 700;
+  font-family: var(--ff-rb);
+  padding: 0.5rem 0;
+}
+
+.products-containers > .card > .info > header {
+  font-weight: 700;
+  font-family: var(--ff-rb);
+  padding: 0.5rem 0;
 }
