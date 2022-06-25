@@ -320,7 +320,7 @@ body > footer {
   color: var(--color-primary-tint);
 }
 
-.high-button {  
+.high-button {
   margin: 3rem auto 0;
   padding: 2rem;
   max-width: 920px;
@@ -339,4 +339,23 @@ body > footer {
 
 .high-button > button:hover {
   background: var(--color-primary);
+}
+
+.loading-compra {
+  width: 100%;
+  height: 100%;
+  left: 50%;
+  top: 50%;
+  position: fixed;
+  transform: scale(0) translate(-50%, -50%);
+  background: var(--color-primary-tint);
+  color: var(--color-contrast);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 5rem;
+}
+
+.loading-compra.active {
+  transform: scale(1) translate(-50%, -50%);
 }
