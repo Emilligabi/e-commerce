@@ -2,6 +2,52 @@ class PageClient {
   constructor() {
     this.elementTarget = document.getElementById('products-list')
     this.init()
+
+    const target = document.getElementById('loading')
+    'loading'
+      .split('')
+      .map((p) => {
+        const s = document.createElement('span')
+        s.innerText = p.toUpperCase()
+        return s
+      })
+      .forEach((s) => target.append(s))
+
+    document.getElementById('go-to-register').onclick = () => {
+      document.getElementById('cart').style.display = 'none'
+      document.getElementById('register').style.display = 'flex'
+    }
+
+    document.getElementById('client').onsubmit = (event) => {
+      event.preventDefault()
+      const value = document.getElementById('name').value.trim()
+
+      if (!value) {
+        alert('Preencha o nome corretamente!')
+        return
+      }
+
+      console.log({
+        user: { name: value },
+        products: cart.getList(),
+      })
+
+      target.classList.add('active')
+      anime({
+        targets: target.children,
+        translateY: -150,
+        direction: 'alternate',
+        easing: 'easeInOutSine',
+        duration: 400,
+        delay: anime.stagger(100),
+        loop: true
+      })
+      localStorage.removeItem('cart')
+      setTimeout(() => {
+        alert('compra efetuada com sucesso!')
+        location.href = '/'
+      }, 3000)
+    }
   }
 
   init() {
@@ -76,6 +122,9 @@ class PageClient {
     }
 
     document.getElementById('total-price').innerText = format(total)
+    if (products.length === 0) {
+      document.getElementById('go-to-register').style.display = 'none'
+    }
   }
 
   /**
